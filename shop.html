@@ -1779,7 +1779,7 @@
 
 							</header><!-- .entry-header -->
 
-							<div class="entry-content clear" itemprop="text">
+							<div  id="jbheader" class="entry-content clear" itemprop="text">
 
 
 								<div data-elementor-type="wp-post" data-elementor-id="616"
@@ -1811,7 +1811,7 @@
 																		<div class="elementor-widget-container">
 																			<h1
 																				class="elementor-heading-title elementor-size-default">
-																				PRODUCTS SHOP</h1>
+																				HOBBYHUB STORE</h1>
 																		</div>
 																	</div>
 																	<div class="elementor-element elementor-element-5164845 elementor-widget-divider--view-line elementor-widget elementor-widget-divider"
@@ -1849,42 +1849,162 @@
 												</div>
 											</section>
                                             <!--HEADER SECTION ENDS-->
+
+                                            <!-- NAV SECONDARY-->
+                                            <nav id="secNav" class="nav nav-pills flex-column flex-sm-row">
+                                                <a id="homeNav" class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="javascript:window.location.reload();">Home</a>
+                                                <a id="bakeNav" class="flex-sm-fill text-sm-center nav-link" href="javascript:bakes()">Bakery</a>
+                                                <a id="handNav" class="flex-sm-fill text-sm-center nav-link" href="javascript:crafts()">Handicrafts</a>
+                                                <a id="allNav" class="flex-sm-fill text-sm-center nav-link" href="javascript:viewAll()">All</a>
+                                            </nav>
+
+                                            <!-- <script>
+                                                var yourNavigation = $("#secNav");
+                                                stickyDiv = "fixed-top";
+                                                yourHeader = $('#jbheader').height();
+
+                                                $(window).scroll(function() {
+                                                if( $(this).scrollTop() > yourHeader ) {
+                                                    yourNavigation.addClass(stickyDiv);
+                                                } else {
+                                                    yourNavigation.removeClass(stickyDiv);
+                                                }
+                                                });
+                                            </script> -->
+                                            <!-- NAV SEC ENDS -->
+
+
                                             
                                             <!--MAIN CONTENTS-->
                                                 <br> <br>
                                                 <!--CONTENT-->
                                                 <div id="firstHeading"></div>
                                                 <br>
-                                                <div class="container ">
-                                                    <div class="row row-cols-1 row-cols-md-3 g-4">
-                                                        <div class="col">
+
+
+                                                <div class="container">
+                                                    <div id="firstContent" class="row row-cols-1 row-cols-md-3 g-4">
+                                                        <div id='bakesCol' class="col HomePageContent" onclick="bakes()">
                                                             <div class="card card-body h-100">
                                                                 <img src='./files/static/shop-products/blackForest-custom.jpg' class='card-img-top' alt=''>
                                                                 <div class="card-title fs-3">Bakery</div>
                                                                 <p class="card-text">From cakes to pudding</p>
                                                             </div>
                                                         </div>
-                                                        <div class="col">
+                                                        <div id='craftsCol' class="col HomePageContent" onclick="crafts()">
                                                             <div class="card card-body h-100">
                                                                 <img src='./files/static/shop-products/IMG_20210609_084735.jpg' class='card-img-top' alt=''>
                                                                 <div class="card-title fs-3">Handicrafts</div>
                                                                 <p class="card-text">All in all gift shop</p>
                                                             </div>
                                                         </div>
-                                                        <div class="col">
+                                                        <div id='viewAllCol' class="col HomePageContent" onclick="viewAll()">
                                                             <div class="card card-body h-100">
                                                                 <img src="./files/rightArrow.png" class="card-img-top" alt="" srcset="">
                                                                 <div class="card-title fs-3">See all</div>
                                                                 <p class="card-text">See all products</p>
                                                             </div>
                                                         </div>
+
+                                                        <script>
+                                                            function bakes(){
+                                                                $("#homeNav").removeClass("active");
+                                                                $("#bakeNav").addClass("active");
+                                                                $("#handNav").removeClass("active");
+                                                                $("#allNav").removeClass("active");
+
+                                                                $('#firstContent').append("<div class='col bakePageContent'><div class='card'><img src='./files/static/shop-products/pudding.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Pudding<br>Cost: Varies on type</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col bakePageContent'><div class='card'><img src='./files/static/shop-products/blackForest-custom.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Black Forest <br>Custom: Rs.600/- <br>Basic: Rs.480/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col bakePageContent'><div class='card'><img src='./files/static/shop-products/ferreroNutella.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Ferrero Nutella<br> Cost : Rs.1000/-</p></div></div></div>");
+                                                            
+                                                                $("#firstHeading").html("Bakery");
+                                                                const elements = document.getElementsByClassName('HomePageContent');
+                                                                while(elements.length > 0){
+                                                                    elements[0].parentNode.removeChild(elements[0]);
+                                                                }
+
+                                                                const elements2 = document.getElementsByClassName('craftPageContent');
+                                                                while(elements2.length > 0){
+                                                                    elements2[0].parentNode.removeChild(elements2[0]);
+                                                                }
+
+                                                                }
+
+                                                            function crafts(){
+                                                                $("#homeNav").removeClass("active");
+                                                                $("#bakeNav").removeClass("active");
+                                                                $("#handNav").addClass("active");
+                                                                $("#allNav").removeClass("active");
+
+                                                                $("#firstHeading").html("Handicrafts");
+                                                                const elements = document.getElementsByClassName('HomePageContent');
+                                                                while(elements.length > 0){
+                                                                    elements[0].parentNode.removeChild(elements[0]);
+                                                                }
+                                                                const elements3 = document.getElementsByClassName('bakePageContent');
+                                                                while(elements3.length > 0){
+                                                                    elements3[0].parentNode.removeChild(elements3[0]);
+                                                                }
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210609_084735.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #1: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210615_144337.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Mini-Chain Album: <br>Hand-Made<br> Cost : Rs.250/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210611_183924.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #2: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210609_085713.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #3: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210705_201049.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Butterfly Scrapbook #1:<br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210623_151020.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #4: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210705_130515.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Butterfly Scrapbook #2: <br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/circular-scrapbook.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Circular Scrapbook<br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/Sweethome.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Sweet Home • Explosion Box<br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/wallart.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Wallart <br>Hand-Made<br> Cost : Rs.499 (and above)</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/bottleart.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Bottle Art (Customisable) <br>Hand-Made<br> Cost : Rs.250/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/explosionBox.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Explosion Box #2<br>Hand-Made<br> Cost : Rs.450/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/calligraphy.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Calligraphy Work<br>Custom<br> Cost : Rs.499/-</p></div></div></div>");
+                                                            }
+
+                                                            function viewAll(){
+                                                                $("#homeNav").removeClass("active");
+                                                                $("#bakeNav").removeClass("active");
+                                                                $("#handNav").removeClass("active");
+                                                                $("#allNav").addClass("active");
+
+                                                                $("#firstHeading").html("All products");
+                                                                const elements = document.getElementsByClassName('HomePageContent');
+                                                                while(elements.length > 0){
+                                                                    elements[0].parentNode.removeChild(elements[0]);
+                                                                }
+
+                                                                const elements2 = document.getElementsByClassName('craftPageContent');
+                                                                while(elements2.length > 0){
+                                                                    elements2[0].parentNode.removeChild(elements2[0]);
+                                                                }
+
+                                                                const elements3 = document.getElementsByClassName('bakePageContent');
+                                                                while(elements3.length > 0){
+                                                                    elements3[0].parentNode.removeChild(elements3[0]);
+                                                                }
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210609_084735.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #1: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210615_144337.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Mini-Chain Album: <br>Hand-Made<br> Cost : Rs.250/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210611_183924.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #2: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210609_085713.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #3: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210705_201049.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Butterfly Scrapbook #1:<br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210623_151020.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #4: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/IMG_20210705_130515.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Butterfly Scrapbook #2: <br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/circular-scrapbook.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Circular Scrapbook<br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/Sweethome.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Sweet Home • Explosion Box<br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/wallart.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Wallart <br>Hand-Made<br> Cost : Rs.499 (and above)</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/bottleart.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Bottle Art (Customisable) <br>Hand-Made<br> Cost : Rs.250/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/explosionBox.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Explosion Box #2<br>Hand-Made<br> Cost : Rs.450/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col bakePageContent'><div class='card'><img src='./files/static/shop-products/pudding.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Pudding<br>Cost: Varies on type</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col bakePageContent'><div class='card'><img src='./files/static/shop-products/blackForest-custom.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Black Forest <br>Custom: Rs.600/- <br>Basic: Rs.480/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col bakePageContent'><div class='card'><img src='./files/static/shop-products/ferreroNutella.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Ferrero Nutella<br> Cost : Rs.1000/-</p></div></div></div>");
+                                                                $('#firstContent').append("<div class='col craftPageContent'><div class='card'><img src='./files/static/shop-products/calligraphy.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Calligraphy Work<br>Custom<br> Cost : Rs.499/-</p></div></div></div>");
+                                                            }
+                                                        </script>
                                                     </div>
-                                            </div>
+                                                </div>
                                                 
                                                 <script>
                                                     $("#firstHeading").html("Browse by Category");
                                                     $("#firstHeading").addClass('container fs-2 text-uppercase');
-                                                    $("#firstHeading").append("<div")
                                                 </script>
 
 
@@ -1892,27 +2012,7 @@
                                                     <div class="elementor-container elementor-column-gap-default">
                                                         <div class="elementor-row">
                                                             <div id="mainContentInside" class="row row-cols-1 row-cols-md-3 g-4">
-                                                                
-
                                                                 <script>
-                                                                    function viewAll(){
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210609_084735.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #1: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210615_144337.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Mini-Chain Album: <br>Hand-Made<br> Cost : Rs.250/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210611_183924.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #2: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210609_085713.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #3: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210705_201049.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Butterfly Scrapbook #1:<br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210623_151020.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #4: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210705_130515.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Butterfly Scrapbook #2: <br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/circular-scrapbook.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Circular Scrapbook<br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/Sweethome.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Sweet Home • Explosion Box<br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/wallart.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Wallart <br>Hand-Made<br> Cost : Rs.499 (and above)</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/bottleart.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Bottle Art (Customisable) <br>Hand-Made<br> Cost : Rs.250/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/explosionBox.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Explosion Box #2<br>Hand-Made<br> Cost : Rs.450/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/pudding.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Pudding<br>Cost: Varies on type</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/blackForest-custom.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Black Forest <br>Custom: Rs.600/- <br>Basic: Rs.480/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/ferreroNutella.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Ferrero Nutella<br> Cost : Rs.1000/-</p></div></div></div>");
-                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/calligraphy.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Calligraphy Work<br>Custom<br> Cost : Rs.499/-</p></div></div></div>");
-                                                                    }
                                                                 </script>
                                                             </div>
                                                         </div>
