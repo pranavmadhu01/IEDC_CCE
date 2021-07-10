@@ -7,6 +7,7 @@
         <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
             window._wpemojiSettings = { "baseUrl": "", "ext": ".png", "svgUrl": "", "svgExt": ".svg" };
             !function (e, a, t) { var r, n, o, i, p = a.createElement("canvas"), s = p.getContext && p.getContext("2d"); function c(e, t) { var a = String.fromCharCode; s.clearRect(0, 0, p.width, p.height), s.fillText(a.apply(this, e), 0, 0); var r = p.toDataURL(); return s.clearRect(0, 0, p.width, p.height), s.fillText(a.apply(this, t), 0, 0), r === p.toDataURL() } function l(e) { if (!s || !s.fillText) return !1; switch (s.textBaseline = "top", s.font = "600 32px Arial", e) { case "flag": return !c([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) && (!c([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819]) && !c([55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447])); case "emoji": return !c([55357, 56424, 8205, 55356, 57212], [55357, 56424, 8203, 55356, 57212]) }return !1 } function d(e) { var t = a.createElement("script"); t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t) } for (i = Array("flag", "emoji"), t.supports = { everything: !0, everythingExceptFlag: !0 }, o = 0; o < i.length; o++)t.supports[i[o]] = l(i[o]), t.supports.everything = t.supports.everything && t.supports[i[o]], "flag" !== i[o] && (t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[i[o]]); t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t.readyCallback = function () { t.DOMReady = !0 }, t.supports.everything || (n = function () { t.readyCallback() }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function () { "complete" === a.readyState && t.readyCallback() })), (r = t.source || {}).concatemoji ? d(r.concatemoji) : r.wpemoji && r.twemoji && (d(r.twemoji), d(r.wpemoji))) }(window, document, window._wpemojiSettings);
@@ -1830,7 +1831,7 @@
 																		<div class="elementor-widget-container">
 																			<h3
 																				class="elementor-heading-title elementor-size-default">
-																				A Hobbyhunt initiative
+																				A Hobbyhub initiative
                                                                             </h3>
 																		</div>
 																	</div>
@@ -1852,168 +1853,67 @@
                                             <!--MAIN CONTENTS-->
                                                 <br> <br>
                                                 <!--CONTENT-->
+                                                <div id="firstHeading"></div>
+                                                <br>
+                                                <div class="container ">
+                                                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                                                        <div class="col">
+                                                            <div class="card card-body h-100">
+                                                                <img src='./files/static/shop-products/blackForest-custom.jpg' class='card-img-top' alt=''>
+                                                                <div class="card-title fs-3">Bakery</div>
+                                                                <p class="card-text">From cakes to pudding</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="card card-body h-100">
+                                                                <img src='./files/static/shop-products/IMG_20210609_084735.jpg' class='card-img-top' alt=''>
+                                                                <div class="card-title fs-3">Handicrafts</div>
+                                                                <p class="card-text">All in all gift shop</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="card card-body h-100">
+                                                                <img src="./files/rightArrow.png" class="card-img-top" alt="" srcset="">
+                                                                <div class="card-title fs-3">See all</div>
+                                                                <p class="card-text">See all products</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                                
+                                                <script>
+                                                    $("#firstHeading").html("Browse by Category");
+                                                    $("#firstHeading").addClass('container fs-2 text-uppercase');
+                                                    $("#firstHeading").append("<div")
+                                                </script>
+
+
                                                 <section class="elementor-section elementor-top-section elementor-element elementor-element-145cbda elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="145cbda" data-element_type="section">
                                                     <div class="elementor-container elementor-column-gap-default">
                                                         <div class="elementor-row">
-                                                            <!-- <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-a95325e" data-id="a95325e" data-element_type="column">
-                                                                <div class="elementor-column-wrap elementor-element-populated">
-                                                                    <div class="elementor-widget-wrap">
-                                                                        <div class="elementor-element elementor-element-b73fc53 elementor-widget elementor-widget-html" data-id="b73fc53" data-element_type="widget" data-widget_type="html.default">
-                                                                            <div class="elementor-widget-container">
-                                                                                <div class="card" style="width: 18rem;">
-                                                                                    <img src="" class="card-img-top" alt="...">
-                                                                                    <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                                                    </div>
-                                                                                </div>		
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            <div id="mainContentInside" class="row row-cols-1 row-cols-md-3 g-4">
                                                                 
-                                                            <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-48e117e" data-id="48e117e" data-element_type="column">
-                                                                <div class="elementor-column-wrap elementor-element-populated">
-                                                                    <div class="elementor-widget-wrap">
-                                                                        <div class="elementor-element elementor-element-4f1facb elementor-widget elementor-widget-html" data-id="4f1facb" data-element_type="widget" data-widget_type="html.default">
-                                                                            <div class="elementor-widget-container">
-                                                                                <div class="elementor-widget-container">
-                                                                                    <div class="card" style="width: 18rem;">
-                                                                                        <img src="" class="card-img-top" alt="...">
-                                                                                            <div class="card-body">
-                                                                                                <h5 class="card-title">Card title</h5>
-                                                                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>		
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                            </div>
-                                                                    
-                                                            <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-2bcf72c" data-id="2bcf72c" data-element_type="column">
-                                                                <div class="elementor-column-wrap elementor-element-populated">
-                                                                    <div class="elementor-widget-wrap">
-                                                                        <div class="elementor-element elementor-element-47ef545 elementor-widget elementor-widget-html" data-id="47ef545" data-element_type="widget" data-widget_type="html.default">
-                                                                            <div class="elementor-widget-container">
-                                                                                <div class="elementor-widget-container">
-                                                                                    <div class="card" style="width: 18rem;">
-                                                                                        <img src="" class="card-img-top" alt="...">
-                                                                                        <div class="card-body">
-                                                                                            <h5 class="card-title">Card title</h5>
-                                                                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>		
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-061037c" data-id="061037c" data-element_type="column">
-                                                                <div class="elementor-column-wrap elementor-element-populated">
-                                                                    <div class="elementor-widget-wrap">
-                                                                        <div class="elementor-element elementor-element-769ddaa elementor-widget elementor-widget-html" data-id="769ddaa" data-element_type="widget" data-widget_type="html.default">
-                                                                            <div class="elementor-widget-container">
-                                                                                <div class="elementor-widget-container">
-                                                                                    <div class="card" style="width: 18rem;">
-                                                                                        <img src="" class="card-img-top" alt="...">
-                                                                                        <div class="card-body">
-                                                                                            <h5 class="card-title">Card title</h5>
-                                                                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>		                        
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div> -->
-                                                            <div class="row row-cols-1 row-cols-md-3 g-4">
-                                                                <!-- <script>
-                                                                    // array.forEach(element => {
-                                                                    // const divn = document.createElement("div");
-                                                                    // divn.classList.add("col");
-
-                                                                    // const cardDiv = document.createElement("div");
-                                                                    // cardDiv.classList.add("card");
-
-                                                                    // const imgInput = document.createElement("img");
-                                                                    // imgInput.setAttribute('src','./files/1594722370484-e1594921559204-51x51.png');
-                                                                    // imgInput.setAttribute('alt','Alternate text');
-                                                                    // imgInput.classList.add("card-img-top");
-
-                                                                    // const cbd = document.createElement("div");
-                                                                    // cbd.classList.add("card-body");
-
-                                                                    // const hh5 = document.createElement("h5");
-                                                                    // hh5.classList.add("card-title");
-                                                                    // hh5.innerHTML("Card Title");
-
-                                                                    // const para = document.createElement('p');
-                                                                    // para.classList.add("card-text");
-                                                                    // para.innerText("This is a card generated by js");
-                                                                    
-                                                                    // console.log('something');
-                                                                    // });
-                                                                </script> -->
 
                                                                 <script>
-                                                                    document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210609_084735.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #1: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                    document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210615_144337.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Mini-Chain Album: <br>Hand-Made<br> Cost : Rs.250/-</p></div></div></div>");
-                                                                    document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210611_183924.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #2: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                    document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210609_085713.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #3: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                    document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210705_201049.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Butterfly Scrapbook #1:<br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
-                                                                    document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210623_151020.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #4: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                    document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210705_130515.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Butterfly Scrapbook #2: <br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
-                                                                    document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/circular-scrapbook.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Circular Scrapbook<br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
-                                                                    document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/Sweethome.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Sweet Home • Explosion Box<br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                    document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/wallart.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Wallart <br>Hand-Made<br> Cost : Rs.499 (and above)</p></div></div></div>");
-                                                                    document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/bottleart.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Bottle Art (Customisable) <br>Hand-Made<br> Cost : Rs.250/-</p></div></div></div>");
-                                                                    // document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/unknown' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #8: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                    // document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/unknown' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #8: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                    // document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/unknown' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #8: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                    // document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/unknown' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #8: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
-                                                                    // document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/unknown' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #8: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                    function viewAll(){
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210609_084735.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #1: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210615_144337.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Mini-Chain Album: <br>Hand-Made<br> Cost : Rs.250/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210611_183924.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #2: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210609_085713.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #3: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210705_201049.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Butterfly Scrapbook #1:<br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210623_151020.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #4: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/IMG_20210705_130515.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Butterfly Scrapbook #2: <br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/circular-scrapbook.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Circular Scrapbook<br>Hand-Made<br> Cost : Rs.750/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/Sweethome.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Sweet Home • Explosion Box<br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/wallart.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Wallart <br>Hand-Made<br> Cost : Rs.499 (and above)</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/bottleart.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Bottle Art (Customisable) <br>Hand-Made<br> Cost : Rs.250/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/explosionBox.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Explosion Box #2<br>Hand-Made<br> Cost : Rs.450/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/pudding.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Pudding<br>Cost: Varies on type</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/blackForest-custom.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Black Forest <br>Custom: Rs.600/- <br>Basic: Rs.480/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/ferreroNutella.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Ferrero Nutella<br> Cost : Rs.1000/-</p></div></div></div>");
+                                                                        document.write("<div class='col'><div class='card'><img src='./files/static/shop-products/calligraphy.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Calligraphy Work<br>Custom<br> Cost : Rs.499/-</p></div></div></div>");
+                                                                    }
                                                                 </script>
-<!--                                                                 
-                                                                <div class="col">
-                                                                  <div class="card">
-                                                                    <img src="" class="card-img-top" alt="...">
-                                                                    <div class="card-body">
-                                                                      <h5 class="card-title">Card title</h5>
-                                                                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                                
-                                                                <div class="col">
-                                                                  <div class="card">
-                                                                    <img src="..." class="card-img-top" alt="...">
-                                                                    <div class="card-body">
-                                                                      <h5 class="card-title">Card title</h5>
-                                                                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                                
-                                                                <div class="col">
-                                                                  <div class="card">
-                                                                    <img src="..." class="card-img-top" alt="...">
-                                                                    <div class="card-body">
-                                                                      <h5 class="card-title">Card title</h5>
-                                                                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                                    </div>
-                                                                  </div>
-                                                                </div> -->
-
                                                             </div>
                                                         </div>
                                                     </div>
