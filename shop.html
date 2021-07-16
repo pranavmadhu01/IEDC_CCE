@@ -1863,12 +1863,57 @@
                                             <!--MAIN CONTENTS-->
                                                 <br> <br>
                                                 <!--CONTENT-->
-                                                <div id="firstHeading"></div>
+                                                <div class='container'>
+                                                    <div class='row' style='margin:0'>
+                                                        <div id="firstHeading" class='col'></div>
+                                                        <div class='col-md-5'>
+                                                            <form class="d-flex" action="./shop.html?view=all&" method="get">
+                                                                <input type="hidden" name='view' value='all'>
+                                                                <input name='sub' class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                                                <button class="btn btn-outline-success" type="submit">Search</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <br>
 
+                                                <!--******************************* BUY NOW BOX ******************************-->
+
+                                                <div id="exampleModalCenter" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: block; padding-right: 17px;">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                          <button type="button" class="btn btn-primary">Save changes</button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- <button type="button" id='demoModal' class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="showModal(this.attr)">
+                                                    Launch demo modal
+                                                </button>
+
+                                                <script>
+                                                    function showModal(btnId,target){
+                                                        target.css.display=true;
+
+                                                    }
+                                                </script> -->
+                                                  
+                                                <!-- *************************END OF BUY NOW BOX ****************************-->
 
                                                 <div class='container'>
-                                                    <div id='firstContent' class='row row-cols-1 row-cols-md-2 g-4'>
+                                                    <div id='firstContent' class='row row-cols-1 row-cols-md-4 g-4'>
                                                         <a style="text-decoration:none; color:inherit;" href='?view=bakes'>
                                                         <div id='bakesCol' class='col HomePageContent'>
                                                             <div class='card card-body h-100'>
@@ -1891,7 +1936,7 @@
                                                         <div id='techCol' class='col HomePageContent'>
                                                             <div class='card card-body h-100'>
                                                                 <img src='./files/static/shop-products/ozonizer500x500.jpg' class='card-img-top' alt=''>
-                                                                <div class='card-title fs-3'>Electronics and Tech</div>
+                                                                <div class='card-title fs-3'>Tech</div>
                                                                 <p class='card-text'>Cutting edge products</p>
                                                             </div>
                                                         </div>
@@ -1899,7 +1944,12 @@
                                                         <a href="?view=all" style='text-decoration:none; color:inherit;'>
                                                         <div id='viewAllCol' class='col HomePageContent'>
                                                             <div class='card card-body h-100'>
-                                                                <img src='./files/rightArrow.png' class='card-img-top' alt='' srcset=''>
+                                                                <!-- <img src='./files/rightArrow.png' class='card-img-top' alt='' srcset=''> -->
+                                                                <CENTER>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="227" height="227" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                                                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                                                                    </svg>
+                                                                </CENTER>
                                                                 <div class='card-title fs-3'>See all</div>
                                                                 <p class='card-text'>See all products</p>
                                                             </div>
@@ -1914,6 +1964,7 @@
 
                                                     const urlParams = new URLSearchParams(window.location.search);
                                                     const params = urlParams.get('view');
+                                                    const sub = urlParams.get('sub');
 
                                                     if(params==='home'){
                                                         homeShop();
@@ -1927,10 +1978,20 @@
                                                     else if(params==='tech'){
                                                         tech();
                                                     }
-                                                    else if(params==='all'){
+                                                    else if(params==='all' && sub===null){
                                                         viewAll();
                                                     }
+                                                    else if(params==='all' && sub!==null){
+                                                        $("#firstHeading").html("Product not found!");
+                                                        $('#firstContent').html("You searched for "+sub);
+                                                    }
+                                                    else{
+                                                        // pnf();
+                                                    }
 
+                                                    function pnf(){
+                                                        window.location = './404.html';
+                                                    }
 
                                                     function homeShop(){
                                                         $("#homeNav").addClass("active");
@@ -1940,9 +2001,10 @@
                                                         $("#allNav").removeClass("active");
                                                         $('#firstContent').removeClass('row-cols-md-2');
                                                         $('#firstContent').removeClass('row-cols-md-3');
-                                                        $('#firstContent').addClass('row-cols-md-2');
+                                                        $('#firstContent').removeClass('row-cols-md-4');
+                                                        $('#firstContent').addClass('row-cols-md-4');
 
-                                                        $('#firstContent').html("<a href='?view=bakes' style='text-decoration:none; color:inherit;'><div id='bakesCol' class='col HomePageContent'><div class='card card-body h-100'><img src='./files/static/shop-products/blackForest-custom.jpg' class='card-img-top' alt=''><div class='card-title fs-3'>Pastries</div><p class='card-text'>From cakes to pudding</p></div></div></a><a href='?view=crafts' style='text-decoration:none; color:inherit;'><div id='craftsCol' class='col HomePageContent'><div class='card card-body h-100'><img src='./files/static/shop-products/IMG_20210609_084735.jpg' class='card-img-top' alt=''><div class='card-title fs-3'>Handicrafts</div><p class='card-text'>All in all gift shop</p></div></div></a><a href='?view=tech'><div id='techCol' class='col HomePageContent'><div id='techCol' class='card card-body h-100'><img src='./files/static/shop-products/ozonizer500x500.jpg' class='card-img-top' alt=''><div class='card-title fs-3'>Electronics and Tech</div><p class='card-text'>Cutting edge products</p></div></div></a><a href='?view=all' style='text-decoration:none; color:inherit;'><div id='viewAllCol' class='col HomePageContent'><div class='card card-body h-100'><img src='./files/rightArrow.png' class='card-img-top' alt='' srcset=''><div class='card-title fs-3'>See all</div><p class='card-text'>See all products</p></div></div>");
+                                                        $('#firstContent').html("<a href='?view=bakes' style='text-decoration:none; color:inherit;'><div id='bakesCol' class='col HomePageContent'><div class='card card-body h-100'><img src='./files/static/shop-products/blackForest-custom.jpg' class='card-img-top' alt=''><div class='card-title fs-3'>Pastries</div><p class='card-text'>From cakes to pudding</p></div></div></a><a href='?view=crafts' style='text-decoration:none; color:inherit;'><div id='craftsCol' class='col HomePageContent'><div class='card card-body h-100'><img src='./files/static/shop-products/IMG_20210609_084735.jpg' class='card-img-top' alt=''><div class='card-title fs-3'>Handicrafts</div><p class='card-text'>All in all gift shop</p></div></div></a><a href='?view=tech' style='text-decoration:none; color:inherit;'><div id='techCol' class='col HomePageContent'><div class='card card-body h-100'><img src='./files/static/shop-products/ozonizer500x500.jpg' class='card-img-top' alt=''><div class='card-title fs-3'>Tech</div><p class='card-text'>Cutting edge products</p></div></div></a><a href='?view=all' style='text-decoration:none; color:inherit;'><div id='viewAllCol' class='col HomePageContent'><div class='card card-body h-100'><img src='./files/rightArrow.png' class='card-img-top' alt='' srcset=''><div class='card-title fs-3'>See all</div><p class='card-text'>See all products</p></div></div>");
                                                     };
 
 
@@ -1956,22 +2018,13 @@
                                                         $('#firstContent').removeClass('row-cols-md-3');
                                                         $('#firstContent').removeClass('row-cols-md-2');
                                                         $('#firstContent').addClass('row-cols-md-3');
+                                                        $('#firstContent').removeClass('row-cols-md-4');
 
                                                         $('#firstContent').html("<div class='col bakePageContent'><div class='card h-100'><img src='./files/static/shop-products/pudding.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Pudding<br>Cost: Varies on type</p></div></div></div>");
                                                         $('#firstContent').append("<div class='col bakePageContent'><div class='card h-100'><img src='./files/static/shop-products/blackForest-custom.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Black Forest <br>Custom: Rs.600/- <br>Basic: Rs.480/-</p></div></div></div>");
                                                         $('#firstContent').append("<div class='col bakePageContent'><div class='card h-100'><img src='./files/static/shop-products/ferreroNutella.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Ferrero Nutella<br> Cost : Rs.1000/-</p></div></div></div>");
                                                     
                                                         $("#firstHeading").html("Pastries");
-                                                        const elements = document.getElementsByClassName('HomePageContent');
-                                                        while(elements.length > 0){
-                                                            elements[0].parentNode.removeChild(elements[0]);
-                                                        }
-
-                                                        const elements2 = document.getElementsByClassName('craftPageContent');
-                                                        while(elements2.length > 0){
-                                                            elements2[0].parentNode.removeChild(elements2[0]);
-                                                        }
-
                                                         }
 
                                                     function crafts(){
@@ -1984,16 +2037,10 @@
                                                         $('#firstContent').removeClass('row-cols-md-3');
                                                         $('#firstContent').removeClass('row-cols-md-2');
                                                         $('#firstContent').addClass('row-cols-md-3');
+                                                        $('#firstContent').removeClass('row-cols-md-4');
 
                                                         $("#firstHeading").html("Handicrafts");
-                                                        const elements = document.getElementsByClassName('HomePageContent');
-                                                        while(elements.length > 0){
-                                                            elements[0].parentNode.removeChild(elements[0]);
-                                                        }
-                                                        const elements3 = document.getElementsByClassName('bakePageContent');
-                                                        while(elements3.length > 0){
-                                                            elements3[0].parentNode.removeChild(elements3[0]);
-                                                        }
+
                                                         $('#firstContent').html("<div class='col craftPageContent'><div class='card h-100'><img src='./files/static/shop-products/IMG_20210609_084735.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #1: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
                                                         $('#firstContent').append("<div class='col craftPageContent'><div class='card h-100'><img src='./files/static/shop-products/IMG_20210615_144337.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Mini-Chain Album: <br>Hand-Made<br> Cost : Rs.250/-</p></div></div></div>");
                                                         $('#firstContent').append("<div class='col craftPageContent'><div class='card h-100'><img src='./files/static/shop-products/IMG_20210611_183924.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Simple card #2: <br>Hand-Made<br> Cost : Rs.350/-</p></div></div></div>");
@@ -2019,23 +2066,9 @@
                                                         $('#firstContent').removeClass('row-cols-md-3');
                                                         $('#firstContent').removeClass('row-cols-md-2');
                                                         $('#firstContent').addClass('row-cols-md-3');
+                                                        $('#firstContent').removeClass('row-cols-md-4');
 
                                                         $("#firstHeading").html("Electronics and Tech");
-
-                                                        const elements = document.getElementsByClassName('HomePageContent');
-                                                        while(elements.length > 0){
-                                                            elements[0].parentNode.removeChild(elements[0]);
-                                                        }
-
-                                                        const elements2 = document.getElementsByClassName('craftPageContent');
-                                                        while(elements2.length > 0){
-                                                            elements2[0].parentNode.removeChild(elements2[0]);
-                                                        }
-
-                                                        const elements3 = document.getElementsByClassName('bakePageContent');
-                                                        while(elements3.length > 0){
-                                                            elements3[0].parentNode.removeChild(elements3[0]);
-                                                        }
 
                                                         $('#firstContent').html("<div class='col craftPageContent'><div class='card h-100'><img src='./files/static/shop-products/ozonizer500x500.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Ozonizer<br>A portable disinfection device<br> Cost : Rs.3200 to 3600/- (Based on the size of the box)</p></div></div></div>");
                                                         $('#firstContent').append("<div class='col craftPageContent'><div class='card h-100'><img src='./files/static/shop-products/resync.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Resync<br>Automated Water pump system<br>Cost : Rs.3000/-</p></div></div></div>");
@@ -2053,6 +2086,7 @@
                                                         $('#firstContent').removeClass('row-cols-md-3');
                                                         $('#firstContent').removeClass('row-cols-md-2');
                                                         $('#firstContent').addClass('row-cols-md-3');
+                                                        $('#firstContent').removeClass('row-cols-md-4');
 
                                                         $("#firstHeading").html("All products");
                                                         
@@ -2077,34 +2111,27 @@
                                                         $('#firstContent').append("<div class='col bakePageContent'><div class='card h-100'><img src='./files/static/shop-products/ferreroNutella.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Ferrero Nutella<br> Cost : Rs.1000/-</p></div></div></div>");
                                                         
                                                         //Electronics
-                                                        $('#firstContent').append("<div class='col craftPageContent'><div class='card h-100'><img src='./files/static/shop-products/ozonizer500x500.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Ozonizer<br>A portable disinfection device<br> Cost : Rs.3200 to 3600/- (Based on the size of the box)</p></div></div></div>");
-                                                        $('#firstContent').append("<div class='col craftPageContent'><div class='card h-100'><img src='./files/static/shop-products/resync.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Resync<br>Automated Water pump system<br>Cost : Rs.3000/-</p></div></div></div>");
-                                                        $('#firstContent').append("<div class='col craftPageContent'><div class='card h-100'><img src='./files/static/shop-products/temos.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Temos<br>Automatic Temperature checking system<br>Cost : Rs.6499/-</p></div></div></div>");
-                                                        //$('#firstContent').append("<div class='col craftPageContent'><div class='card h-100'><img src='./files/static/shop-products/unknown' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>unknown<br>unknown<br>Cost : Rs./-</p></div></div></div>");
+                                                        $('#firstContent').append("<div class='col techPageContent'><div class='card h-100'><img src='./files/static/shop-products/ozonizer500x500.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Ozonizer<br>A portable disinfection device<br> Cost : Rs.3200 to 3600/- (Based on the size of the box)</p></div></div></div>");
+                                                        $('#firstContent').append("<div class='col techPageContent'><div class='card h-100'><img src='./files/static/shop-products/resync.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Resync<br>Automated Water pump system<br>Cost : Rs.3000/-</p></div></div></div>");
+                                                        $('#firstContent').append("<div class='col techPageContent'><div class='card h-100'><img src='./files/static/shop-products/temos.jpg' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>Temos<br>Automatic Temperature checking system<br>Cost : Rs.6499/-</p></div></div></div>");
+                                                        //$('#firstContent').append("<div class='col techPageContent'><div class='card h-100'><img src='./files/static/shop-products/unknown' class='card-img-top' alt=''><div class='card-body'><p class='card-text'>unknown<br>unknown<br>Cost : Rs./-</p></div></div></div>");
                                                     
                                                     }
                                                 </script>
                                                 <!--END OF CONTENT-->
                                             
                                             <!--CONTACT SECTION STARTS-->
-											<section
-												class="elementor-section elementor-top-section elementor-element elementor-element-2b53157 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-												data-id="2b53157" data-element_type="section">
+											<section class="elementor-section elementor-top-section elementor-element elementor-element-2b53157 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2b53157" data-element_type="section">
 												<div class="elementor-container elementor-column-gap-default">
 													<div class="elementor-row">
-														<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-511d94a"
-															data-id="511d94a" data-element_type="column">
-															<div
-																class="elementor-column-wrap elementor-element-populated">
+														<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-511d94a" data-id="511d94a" data-element_type="column">
+															<div class="elementor-column-wrap elementor-element-populated">
 																<div class="elementor-widget-wrap">
-																	<div class="elementor-element elementor-element-79b1639 elementor-widget elementor-widget-text-editor"
-																		data-id="79b1639" data-element_type="widget"
-																		data-widget_type="text-editor.default">
+																	<div class="elementor-element elementor-element-79b1639 elementor-widget elementor-widget-text-editor" data-id="79b1639" data-element_type="widget" data-widget_type="text-editor.default">
 																		<div class="elementor-widget-container">
-																			<div
-																				class="elementor-text-editor elementor-clearfix">
-																				<p style="text-align: center;">FOR QUERIES CONTACT:&nbsp; <a
-																						href="mailto:iedc@cce.edu.in">iedc@cce.edu.in</a>
+																			<div class="elementor-text-editor elementor-clearfix">
+																				<p style="text-align: center;">FOR QUERIES CONTACT:&nbsp; 
+                                                                                    <a href="mailto:iedc@cce.edu.in">iedc@cce.edu.in</a>
 																				</p>
 																			</div>
 																		</div>
@@ -2116,64 +2143,42 @@
 												</div>
 											</section>
 											<section
-												class="elementor-section elementor-top-section elementor-element elementor-element-c70566d elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-												data-id="c70566d" data-element_type="section"
-												data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+												class="elementor-section elementor-top-section elementor-element elementor-element-c70566d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c70566d" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 												<div class="elementor-container elementor-column-gap-default">
 													<div class="elementor-row">
-														<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8bad2d2"
-															data-id="8bad2d2" data-element_type="column">
-															<div
-																class="elementor-column-wrap elementor-element-populated">
+														<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8bad2d2" data-id="8bad2d2" data-element_type="column">
+															<div class="elementor-column-wrap elementor-element-populated">
 																<div class="elementor-widget-wrap">
-																	<div class="elementor-element elementor-element-8d7aeb8 elementor-shape-circle elementor-grid-0 elementor-widget elementor-widget-social-icons"
-																		data-id="8d7aeb8" data-element_type="widget"
-																		data-widget_type="social-icons.default">
+																	<div class="elementor-element elementor-element-8d7aeb8 elementor-shape-circle elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="8d7aeb8" data-element_type="widget" data-widget_type="social-icons.default">
 																		<div class="elementor-widget-container">
-																			<div
-																				class="elementor-social-icons-wrapper elementor-grid">
+																			<div class="elementor-social-icons-wrapper elementor-grid">
 																				<div class="elementor-grid-item">
-																					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-aaa3d70"
-																						href="https://m.facebook.com/iedc.cceijk/"
-																						target="_blank">
-																						<span
-																							class="elementor-screen-only">Facebook</span>
+																					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-aaa3d70" href="https://m.facebook.com/iedc.cceijk/" target="_blank">
+																						<span class="elementor-screen-only">Facebook</span>
 																						<i class="fab fa-facebook"></i>
 																					</a>
 																				</div>
 																				<div class="elementor-grid-item">
-																					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-c6f3c55"
-																						href="https://twitter.com/CceIedc"
-																						target="_blank">
-																						<span
-																							class="elementor-screen-only">Twitter</span>
+																					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-c6f3c55" href="https://twitter.com/CceIedc" target="_blank">
+																						<span class="elementor-screen-only">Twitter</span>
 																						<i class="fab fa-twitter"></i>
 																					</a>
 																				</div>
 																				<div class="elementor-grid-item">
-																					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-2c24a68"
-																						href="https://www.youtube.com/channel/UCPquIIxMmQLepwACtmpXHOg"
-																						target="_blank">
-																						<span
-																							class="elementor-screen-only">Youtube</span>
+																					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-2c24a68" href="https://www.youtube.com/channel/UCPquIIxMmQLepwACtmpXHOg" target="_blank">
+																						<span class="elementor-screen-only">Youtube</span>
 																						<i class="fab fa-youtube"></i>
 																					</a>
 																				</div>
 																				<div class="elementor-grid-item">
-																					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-b14434e"
-																						href="https://www.linkedin.com/company/iedccce"
-																						target="_blank">
-																						<span
-																							class="elementor-screen-only">Linkedin</span>
+																					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-b14434e" href="https://www.linkedin.com/company/iedccce" target="_blank">
+																						<span class="elementor-screen-only">Linkedin</span>
 																						<i class="fab fa-linkedin"></i>
 																					</a>
 																				</div>
 																				<div class="elementor-grid-item">
-																					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-9b841dc"
-																						href="https://www.instagram.com/iedc_cceijk/"
-																						target="_blank">
-																						<span
-																							class="elementor-screen-only">Instagram</span>
+																					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-9b841dc" href="https://www.instagram.com/iedc_cceijk/" target="_blank">
+																						<span class="elementor-screen-only">Instagram</span>
 																						<i class="fab fa-instagram"></i>
 																					</a>
 																				</div>
@@ -2186,21 +2191,14 @@
 													</div>
 												</div>
 											</section>
+
 										</div>
 									</div>
 								</div>
 
-
-
 							</div><!-- .entry-content .clear -->
 
-
-
 						</article><!-- #post-## -->
-
-
-
-
 
 					</main><!-- #main -->
 
@@ -2217,17 +2215,13 @@
 
 
 		<footer class="site-footer" id="colophon" itemscope="itemscope" itemid="#colophon">
-
-
-
 			<div class="ast-small-footer footer-sml-layout-2">
 				<div class="ast-footer-overlay">
 					<div class="ast-container">
 						<div class="ast-small-footer-wrap">
 							<div class="ast-row ast-flex">
 
-								<div
-									class="ast-small-footer-section ast-small-footer-section-1 ast-small-footer-section-equally ast-col-md-6 ast-col-xs-12">
+								<div class="ast-small-footer-section ast-small-footer-section-1 ast-small-footer-section-equally ast-col-md-6 ast-col-xs-12">
 									Innovation and Entrepreneurship Development Centre,<br>
 									Christ College of Engineering, <br>Irinjalakuda, Thrissur.
 									680125
@@ -2236,27 +2230,19 @@
 									</form>
 								</div>
 
-								<div
-									class="ast-small-footer-section ast-small-footer-section-2 ast-small-footer-section-equally ast-col-md-6 ast-col-xs-12">
-									Copyright © 2020 All Rights Reserved<br> IEDC- <a href="https://cce.edu.in/">Christ
-										College of Engineering</a>.<br>
-									Designed and Maintained by <a
-										href="https://www.linkedin.com/in/hrishikesh-mohan">Hrishikesh Mohan</a>. </div>
-
-							</div> <!-- .ast-row.ast-flex -->
+								<div class="ast-small-footer-section ast-small-footer-section-2 ast-small-footer-section-equally ast-col-md-6 ast-col-xs-12">
+									Copyright © 2020 All Rights Reserved<br> IEDC- 
+                                    <a href="https://cce.edu.in/">Christ College of Engineering</a>.<br>
+									Designed and Maintained by <a href="https://www.linkedin.com/in/hrishikesh-mohan">Hrishikesh Mohan</a>. 
+                                </div>
+                            </div> <!-- .ast-row.ast-flex -->
 						</div><!-- .ast-small-footer-wrap -->
 					</div><!-- .ast-container -->
 				</div><!-- .ast-footer-overlay -->
 			</div><!-- .ast-small-footer-->
-
-
-		</footer><!-- #colophon -->
-
-
-	</div><!-- #page -->
-
-
-	<script type="text/template" id="tmpl-elementor-templates-modal__header">
+        </footer><!-- #colophon -->
+    </div><!-- #page -->
+    <script type="text/template" id="tmpl-elementor-templates-modal__header">
 	<div class="elementor-templates-modal__header__logo-area"></div>
 	<div class="elementor-templates-modal__header__menu-area"></div>
 	<div class="elementor-templates-modal__header__items-area">
