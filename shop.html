@@ -1887,7 +1887,7 @@
                                                 <!--******************************* BUY NOW BOX ******************************-->
 
                                                  <div id="exampleModalCenter" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;">
-                                                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
                                                       <div class="modal-content">
                                                         <div class="modal-header">
                                                           <div id='modalTitle' class="modal-title display-4" id="exampleModalCenterTitle">Modal title</div>
@@ -1896,10 +1896,10 @@
                                                           </button>
                                                         </div>
                                                         <div class='row modal-body'>
-                                                            <div class="col-6">
+                                                            <div class="col-md-6">
                                                                 <img id='ModalImg' src='' alt="" srcset="">
                                                             </div>
-                                                            <div class='col'>
+                                                            <div class='col-md-6 mr-0'>
                                                                 <p id='Modaldesc' class='fw-bold'>Product details and stuff here</p>
                                                                 <form action="">
                                                                     <div class="mr-0">
@@ -1910,12 +1910,12 @@
                                                                         <label for="message-text" class="col-form-label">Quantity and Customisation</label>
                                                                         <textarea class="form-control" id="message-text"></textarea>
                                                                     </div>
-                                                                </form>
+                                                            </form>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Close</button>
-                                                          <button type="button" class="btn btn-warning">Buy</button>
+                                                          <button type="button" class="btn btn-warning" onclick="location.href='./shop.html'">Place order</button>
                                                         </div>
                                                       </div>
                                                     </div>
