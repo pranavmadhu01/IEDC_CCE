@@ -1899,9 +1899,60 @@
                                                     </div>
                                                 </div>
 
-                                                
                                                 <script>
+            
+                                                    var firebaseConfig = {
+                                                    apiKey: "AIzaSyArxhYvYlsV15dnBoXTYw_HtW5cnCXstVY",
+                                                    authDomain: "iedc-cce.firebaseapp.com",
+                                                    databaseURL: "https://iedc-cce.firebaseio.com",
+                                                    projectId: "iedc-cce",
+                                                    storageBucket: "iedc-cce.appspot.com",
+                                                    messagingSenderId: "539797122373",
+                                                    appId: "1:539797122373:web:f978102de145da98f0e22c",
+                                                    measurementId: "G-XGBENYEWSP"
+                                                    };
+                                                    firebase.initializeApp(firebaseConfig);
+                                                    firebase.analytics();
+                                            
+                                                    database= firebase.database();
+                                                    
+                                                    // var url_string = window.location.href;
+                                                    // var url = new URL(url_string);
+                                                    // var pageOn = url.searchParams.get("view");
+                                                    // var product= url.searchParams.get("sub");
+                                                    
+                                                    
                                                     function showModal(btnId){
+                                                        var itemId = btnId.replace(btn,"");
+                                                        var item= database.ref(itemId);
+                                                        ref.on('value', gotData, errData);
+
+                                                        function gotData(data){
+                                                        // console.log("Connected to server");
+                                                        // console.log(data.val());
+                                                        // mem_data = data.val();
+                                            
+                                                        // var id = mem_data.ID;
+                                                        // var name = mem_data.Name;
+                                                        // var email = mem_data.Email;
+                                                        // var phone = mem_data.Phone;
+                                                        // var sem = mem_data.Semester;
+                                                        // var branch = mem_data.Branch;
+                                                        // var pic =mem_data.img_src;
+                                            
+                                                        // document.getElementById("mem_name").innerHTML = "Name: " + name + "<br>";
+                                                        // document.getElementById("mem_id").innerHTML = "ID: " + id;
+                                                        // document.getElementById("mem_sem").innerHTML = "Semester: "+ sem;
+                                                        // document.getElementById("mem_branch").innerHTML= "Branch: "+ branch;
+                                                        // document.getElementById("mem_phone").innerHTML= "Phone number: "+ phone;
+                                                        // document.getElementById("mem_mail").innerHTML = "E-Mail ID: "+ email;
+                                                        // document.getElementById("mem_pic").innerHTML = "<img src='"+pic+"'>"
+                                                    }
+                                            
+                                                    function errData(err){
+                                                        console.log("Error!");
+                                                    }
+
                                                         $('#modalTitle').html(btnId);
                                                         $('#exampleModalCenter').css('display','block'); 
 
