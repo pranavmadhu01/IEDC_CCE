@@ -5,6 +5,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -1880,20 +1887,36 @@
                                                 <!--******************************* BUY NOW BOX ******************************-->
 
                                                  <div id="exampleModalCenter" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none; padding-right: 17px;">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-dialog modal-xl" role="document">
                                                       <div class="modal-content">
+                                                        
                                                         <div class="modal-header">
                                                           <div id='modalTitle' class="modal-title display-4" id="exampleModalCenterTitle">Modal title</div>
                                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
                                                             <span aria-hidden="true">×</span>
                                                           </button>
                                                         </div>
-                                                        <div class="modal-body">
-                                                          <p>Product details and stuff here</p>
+                                                        <div class='row modal-body'>
+                                                            <div class="col-6">
+                                                                <img id='ModalImg' src='' alt="" srcset="">
+                                                            </div>
+                                                            <div class='col-md-3'>
+                                                                <p id='Modaldesc' class='fw-bold'>Product details and stuff here</p>
+                                                                <form action="">
+                                                                    <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">Enter your mail id</label>
+                                                                        <input type="text" class="form-control" id="recipient-name">
+                                                                      </div>
+                                                                      <div class="mb-3">
+                                                                        <label for="message-text" class="col-form-label">Quantity and Customisation</label>
+                                                                        <textarea class="form-control" id="message-text"></textarea>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Close</button>
-                                                          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                                          <button type="button" class="btn btn-warning">Buy</button>
                                                         </div>
                                                       </div>
                                                     </div>
@@ -1916,46 +1939,45 @@
                                             
                                                     database= firebase.database();
                                                     
-                                                    // var url_string = window.location.href;
-                                                    // var url = new URL(url_string);
-                                                    // var pageOn = url.searchParams.get("view");
-                                                    // var product= url.searchParams.get("sub");
+                                                    var url_string = window.location.href;
+                                                    var url = new URL(url_string);
+                                                    var pageOn = url.searchParams.get("view");
+                                                    var product= url.searchParams.get("sub");
                                                     
+                                                    // if(pageOn==='all'){
+
+                                                    // }
                                                     
                                                     function showModal(btnId){
-                                                        var itemId = btnId.replace(btn,"");
-                                                        var item= database.ref(itemId);
-                                                        ref.on('value', gotData, errData);
+                                                            var itemId = btnId.replace('Btn',"");
+                                                            var ref= database.ref('shop/'+pageOn+'/'+itemId+'/');
+                                                            ref.on('value', gotData, errData);
 
-                                                        function gotData(data){
-                                                        // console.log("Connected to server");
-                                                        // console.log(data.val());
-                                                        // mem_data = data.val();
-                                            
-                                                        // var id = mem_data.ID;
-                                                        // var name = mem_data.Name;
-                                                        // var email = mem_data.Email;
-                                                        // var phone = mem_data.Phone;
-                                                        // var sem = mem_data.Semester;
-                                                        // var branch = mem_data.Branch;
-                                                        // var pic =mem_data.img_src;
-                                            
-                                                        // document.getElementById("mem_name").innerHTML = "Name: " + name + "<br>";
-                                                        // document.getElementById("mem_id").innerHTML = "ID: " + id;
-                                                        // document.getElementById("mem_sem").innerHTML = "Semester: "+ sem;
-                                                        // document.getElementById("mem_branch").innerHTML= "Branch: "+ branch;
-                                                        // document.getElementById("mem_phone").innerHTML= "Phone number: "+ phone;
-                                                        // document.getElementById("mem_mail").innerHTML = "E-Mail ID: "+ email;
-                                                        // document.getElementById("mem_pic").innerHTML = "<img src='"+pic+"'>"
-                                                    }
-                                            
-                                                    function errData(err){
-                                                        console.log("Error!");
-                                                    }
+                                                            function gotData(data){
+                                                                console.log(data.val());
+                                                                itemData=data.val();
+                                                                itemTitle = itemData.title;
+                                                                itemCost = itemData.cost;
+                                                                itemDesc = itemData.description;
+                                                                itemImg = itemData.img;
 
-                                                        $('#modalTitle').html(btnId);
-                                                        $('#exampleModalCenter').css('display','block'); 
-
+                                                                $('#modalTitle').html(itemTitle);
+                                                                $('#Modaldesc').html(itemDesc);
+                                                                $('#Modaldesc').append('<br><br>'+itemCost);
+                                                                $('#ModalImg').attr('src','./files/static/shop-products/'+itemImg);
+                                                                $('#exampleModalCenter').css('display','block'); 
+                                                            // document.getElementById("mem_name").innerHTML = "Name: " + name + "<br>";
+                                                            // document.getElementById("mem_id").innerHTML = "ID: " + id;
+                                                            // document.getElementById("mem_sem").innerHTML = "Semester: "+ sem;
+                                                            // document.getElementById("mem_branch").innerHTML= "Branch: "+ branch;
+                                                            // document.getElementById("mem_phone").innerHTML= "Phone number: "+ phone;
+                                                            // document.getElementById("mem_mail").innerHTML = "E-Mail ID: "+ email;
+                                                            // document.getElementById("mem_pic").innerHTML = "<img src='"+pic+"'>"
+                                                            }
+                                                
+                                                        function errData(err){
+                                                            console.log("Error!");
+                                                        } 
                                                     }
 
                                                     function closeModal(){
