@@ -1874,15 +1874,23 @@
                                                     <div class='row' style='margin:0'>
                                                         <div id="firstHeading" class='col'></div>
                                                         <div class='col-md-5'>
-                                                            <form class="d-flex" action="./shop.html?view=all&" method="get">
+                                                            <form class="d-flex" method="get">
                                                                 <input type="hidden" name='view' value='all'>
-                                                                <input name='sub' class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                                                <button class="btn btn-outline-success" type="submit">Search</button>
+                                                                <input id='Searchsub' name='sub' class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                                                <button class="btn btn-outline-success" type="submit" onsubmit="searchContent()">Search</button>
+                                                                <script>
+                                                                    function searchContent(){
+                                                                        searchPara= document.getElementById('Searchsub').val();
+                                                                        location.href('shop.html?view=all&sub='+sub);
+                                                                    }
+                                                                </script>   
                                                             </form>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <br>
+
+                                                
 
                                                 <!--******************************* BUY NOW BOX ******************************-->
 
@@ -1922,7 +1930,6 @@
                                                 </div>
 
                                                 <script>
-            
                                                     var firebaseConfig = {
                                                     apiKey: "AIzaSyArxhYvYlsV15dnBoXTYw_HtW5cnCXstVY",
                                                     authDomain: "iedc-cce.firebaseapp.com",
@@ -1943,10 +1950,6 @@
                                                     var pageOn = url.searchParams.get("view");
                                                     var product= url.searchParams.get("sub");
                                                     
-                                                    // if(pageOn==='all'){
-
-                                                    // }
-                                                    
                                                     function showModal(btnId){
                                                             var itemId = btnId.replace('Btn',"");
                                                             var ref= database.ref('shop/'+pageOn+'/'+itemId+'/');
@@ -1965,13 +1968,6 @@
                                                                 $('#Modaldesc').append('<br><br>'+itemCost);
                                                                 $('#ModalImg').attr('src','./files/static/shop-products/'+itemImg);
                                                                 $('#exampleModalCenter').css('display','block'); 
-                                                            // document.getElementById("mem_name").innerHTML = "Name: " + name + "<br>";
-                                                            // document.getElementById("mem_id").innerHTML = "ID: " + id;
-                                                            // document.getElementById("mem_sem").innerHTML = "Semester: "+ sem;
-                                                            // document.getElementById("mem_branch").innerHTML= "Branch: "+ branch;
-                                                            // document.getElementById("mem_phone").innerHTML= "Phone number: "+ phone;
-                                                            // document.getElementById("mem_mail").innerHTML = "E-Mail ID: "+ email;
-                                                            // document.getElementById("mem_pic").innerHTML = "<img src='"+pic+"'>"
                                                             }
                                                 
                                                         function errData(err){
@@ -2029,6 +2025,53 @@
                                                         </div>
                                                         </a>
                                                     </div>
+                                                    <!-- NEW VERSION -->
+                                                    <!-- <div class='row' style='margin:0'>
+                                                        <div id="firstHeading" class='col'>Handicrafts</div>
+                                                    </div>
+                                                    <div id='clearContent' class='row row-cols-1 row-cols-md-4 g-4'>
+                                                        <a style="text-decoration:none; color:inherit;" href='?view=bakes'>
+                                                        <div id='bakesCol' class='col HomePageContent'>
+                                                            <div class='card card-body h-100'>
+                                                                <img src='./files/static/shop-products/blackForest-custom.jpg' class='card-img-top' alt=''>
+                                                                <div class='card-title fs-3'>Pastries</div>
+                                                                <p class='card-text'>From cakes to pudding</p>
+                                                            </div>
+                                                        </div>
+                                                        </a>
+                                                        <a href="?view=crafts" style="text-decoration:none; color:inherit;">
+                                                        <div id='craftsCol' class='col HomePageContent'>
+                                                            <div class='card card-body h-100'>
+                                                                <img src='./files/static/shop-products/IMG_20210609_084735.jpg' class='card-img-top' alt=''>
+                                                                <div class='card-title fs-3'>Handicrafts</div>
+                                                                <p class='card-text'>All in all gift shop</p>
+                                                            </div>
+                                                        </div>
+                                                        </a>
+                                                        <a href="?view=tech" style="text-decoration:none; color:inherit;">
+                                                        <div id='techCol' class='col HomePageContent'>
+                                                            <div class='card card-body h-100'>
+                                                                <img src='./files/static/shop-products/ozonizer500x500.jpg' class='card-img-top' alt=''>
+                                                                <div class='card-title fs-3'>Tech</div>
+                                                                <p class='card-text'>Cutting edge products</p>
+                                                            </div>
+                                                        </div>
+                                                        </a>
+                                                        <a href="?view=all" style='text-decoration:none; color:inherit;'>
+                                                        <div id='viewAllCol' class='col HomePageContent'>
+                                                            <div class='card card-body h-100'>
+                                                                <CENTER>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="227" height="227" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                                                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                                                                    </svg>
+                                                                </CENTER>
+                                                                <div class='card-title fs-3'>See all</div>
+                                                                <p class='card-text'>See all products</p>
+                                                            </div>
+                                                        </div>
+                                                        </a>
+                                                    </div> -->
+                                                    <!-- NEW VERSION ENDS -->
                                                 </div>
                                                 
                                                 <script>
