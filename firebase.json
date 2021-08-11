@@ -1,6 +1,6 @@
 {
   "hosting": {
-"site": "cce-iedc",
+"site": "iedc-cce-4f876",
     "public": "public",
     "ignore": [
       "firebase.json",
