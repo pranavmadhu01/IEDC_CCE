@@ -1873,7 +1873,7 @@
                                             
                                             <!--MAIN CONTENTS-->
                                                 <br> <br>
-                                                <!--CONTENT-->
+                                                <!--SEARCH
                                                 <div class='container'>
                                                     <div class='row' style='margin:0'>
                                                         <div id="firstHeading" class='col'></div>
@@ -1892,7 +1892,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <br>
+                                                <br>-->
 
                                                 
 
@@ -1911,24 +1911,33 @@
                                                             <div class="col-md-6">
                                                                 <img id='ModalImg' src='' alt="" srcset="">
                                                             </div>
-                                                            <div class='col-md-6 mr-0'>
+                                                            <div class='col-md-6 mr-0' style="size:-3">
                                                                 <p id='Modaldesc' class='fw-bold'>Product details and stuff here</p>
-                                                                <form action="https://getform.io/f/c991da61-d7aa-4b5a-aaac-3652de9f74ab" method="post">
+                                                                <form action="https://getform.io/f/aab19c61-ba33-400c-81fb-dbcafd20fd65" method="post">
                                                                     <div class="mr-0">
-                                                                        <label for="recipient-name" class="col-form-label">Enter your mail id</label>
-                                                                        <input type="text" class="form-control" id="recipient-name">
+                                                                        <label for="recipient-name"   class="col-form-label" >Name</label>
+                                                                        <input type="text" name="Name" class="form-control" id="recipient-name" required>
+                                                                      </div>
+                                                                    <div class="mr-0">
+                                                                        <label for="recipient-name"   class="col-form-label">Phone Number</label>
+                                                                        <input type="text" name="Phone" maxlenght="10" placeholder="0123456789" pattern="[0-9]{10}" required class="form-control" id="recipient-name">
                                                                       </div>
                                                                       <div class="mr-0">
-                                                                        <label for="message-text" class="col-form-label">Quantity and Customisation</label>
-                                                                        <textarea class="form-control" id="message-text"></textarea>
+                                                                        <label for="recipient-name"   class="col-form-label" >Item Name</label>
+                                                                        <input type="text" name="Item" class="form-control" id="recipient-name" required>
+                                                                      </div>
+                                                                    <div class="mr-0">
+                                                                        <label for="message-text" class="col-form-label">Required quantity and customizations</label>
+                                                                        <textarea class="form-control" name="Quantity" id="message-text" required></textarea>
                                                                     </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn btn-warning">Place order</button>
+                                                                      </div>
                                                             </form>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Close</button>
-                                                          <button type="button" class="btn btn-warning" onclick="location.href='./shop.html'">Place order</button>
-                                                        </div>
+                                                        
+                                                        
                                                       </div>
                                                     </div>
                                                 </div>
