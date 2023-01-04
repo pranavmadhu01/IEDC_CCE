@@ -4,25 +4,35 @@
 .ipl20overallWrapper {
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.posterScroll {
+  flex:1;
+  height: 100%;
+  overflow: scroll;
 }
 .iplposterWrapper {
-  /* background-color: red; */
   display: flex;
   flex-wrap: wrap;
-  min-height: 100vh;
-  gap:20px;
-  overflow-y: auto !important;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 40px;
+  overflow-y: scroll;
   padding: 2vw;
+  overflow: hidden;
 }
 .iplEventCard {
-  width: 350px;
+  width: 370px;
   height: fit-content;
   position: relative;
   border-radius: 5px;
+  padding: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .iplEventCard > img {
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/5;
 }
 .ipleventCardDetailsWrapper {
   position: absolute;
@@ -31,29 +41,27 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap:20px;
+  gap: 20px;
   padding: 10px;
-  overflow-y:auto;
-  transition: all 200ms ;
-
+  overflow-y: auto;
+  transition: all 200ms;
 }
-.iplEventCard:hover .ipleventCardDetailsWrapper{
-  top:0;
+.iplEventCard:hover .ipleventCardDetailsWrapper {
+  top: 0;
   visibility: visible;
-  transition: all 200ms ;
+  transition: all 200ms;
 }
-.ipleventCardDetailsWrapper>h2{
+.ipleventCardDetailsWrapper > h2 {
   color: white;
   font-size: 1.5rem;
   text-decoration: underline;
-
 }
-.ipleventCardDetailsWrapper>p{
+.ipleventCardDetailsWrapper > p {
   font-size: 15px;
 }
