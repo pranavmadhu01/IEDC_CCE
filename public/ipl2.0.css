@@ -1,0 +1,59 @@
+::-webkit-scrollbar {
+  display: none;
+}
+.ipl20overallWrapper {
+  height: 100vh;
+  overflow: hidden;
+}
+.iplposterWrapper {
+  /* background-color: red; */
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  gap:20px;
+  overflow-y: auto !important;
+  padding: 2vw;
+}
+.iplEventCard {
+  width: 350px;
+  height: fit-content;
+  position: relative;
+  border-radius: 5px;
+}
+
+.iplEventCard > img {
+  aspect-ratio: 3/4;
+}
+.ipleventCardDetailsWrapper {
+  position: absolute;
+  visibility: hidden;
+  top: 110%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap:20px;
+  padding: 10px;
+  overflow-y:auto;
+  transition: all 200ms ;
+
+}
+.iplEventCard:hover .ipleventCardDetailsWrapper{
+  top:0;
+  visibility: visible;
+  transition: all 200ms ;
+}
+.ipleventCardDetailsWrapper>h2{
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: underline;
+
+}
+.ipleventCardDetailsWrapper>p{
+  font-size: 15px;
+}
