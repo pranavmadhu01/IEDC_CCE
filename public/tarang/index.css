@@ -1,3 +1,103 @@
-.tarangWrapper {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+}
+.tilangWrapper {
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.tilangInnerWrapper {
+  width: 100%;
+  max-width: 1350px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+.tilangInnerTop {
+  flex: 0.7;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+.tilangInnerBottom {
+  /* flex: 0.6; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+.tableTuple {
+  background-color: white;
+  height: 100px;
+  max-width: 900px;
+  width: 100%;
+  align-self: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.tableTuple img {
+  width: 60px;
+  border-radius: 50%;
+  height: 60px;
+}
+.tableTuple > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.teamcardWrapper {
+  width: 300px;
+  max-width: 25%;
+  background-color: white;
+  aspect-ratio: 5/4;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.logo {
+  width: 10vw;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  min-width: 50px;
+  max-width: 120px;
+  object-fit: cover;
+}
+.teamcardWrapper > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.teamcardWrapper > div > span:nth-child(1) {
+  font-weight: 700;
+  font-size: 1.5vw;
+}
+.teamcardWrapper > div > span:nth-child(2) {
+  font-weight: 400;
+}
+.badge {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 10vw;
+  max-width: 100px;
+  min-width: 20px;
 }
