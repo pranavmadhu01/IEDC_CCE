@@ -9,20 +9,57 @@
   display: flex;
   justify-content: center;
   padding: 10px;
+  background-color: #070618;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("./assets/tilangbg.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  justify-content: space-around;
+  position: relative;
+}
+.tilangWrapper > footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+footer > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.tilangWrapper > footer > div > img:nth-child(1),
+.tilangWrapper > footer > div > img:nth-child(3) {
+  height: 50px;
+}
+.tilangWrapper > footer > div > img:nth-child(2) {
+  height: 20px;
+  font-weight: 400;
+}
+footer > div > small {
+  color: white;
+  font-family: "Raleway Dots", cursive;
 }
 .tilangInnerWrapper {
   width: 100%;
   max-width: 1350px;
-  background-color: white;
   display: flex;
   flex-direction: column;
+  background-blend-mode: color;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding: 20px;
+  border-radius: 10px;
 }
 .tilangInnerTop {
   flex: 0.7;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 20px;
   padding: 10px;
 }
@@ -35,7 +72,7 @@
 }
 .tableTuple {
   background-color: white;
-  height: 100px;
+  height: 80px;
   max-width: 900px;
   width: 100%;
   align-self: center;
@@ -44,19 +81,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 20px;
 }
 .tableTuple img {
   width: 60px;
   border-radius: 50%;
   height: 60px;
+  background-color: black;
 }
 .tableTuple > div {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
+}
+.tableTuple > span {
+  font-size: 25px;
+  font-weight: 800;
 }
 .teamcardWrapper {
   width: 300px;
@@ -87,11 +129,12 @@
   gap: 20px;
 }
 .teamcardWrapper > div > span:nth-child(1) {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 1.5vw;
 }
 .teamcardWrapper > div > span:nth-child(2) {
-  font-weight: 400;
+  font-size: 30px;
+  font-weight: 900;
 }
 .badge {
   position: absolute;
@@ -100,4 +143,15 @@
   width: 10vw;
   max-width: 100px;
   min-width: 20px;
+}
+.backbutton {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 50px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
 }
