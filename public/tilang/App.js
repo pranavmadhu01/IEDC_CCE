@@ -90,7 +90,7 @@ function App() {
           <div>
             <img src="./assets/iedc.png" alt="" />
             <img src="./assets/cross.png" alt="" />
-            <img src="./assets/iedc.png" alt="" />
+            <img src="./assets/tavasya.png" alt="" />
           </div>
           <div>
             <small>TILANG 2023</small>
