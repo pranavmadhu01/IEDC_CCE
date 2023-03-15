@@ -6,8 +6,6 @@
 }
 .tilangWrapper {
   height: 100vh;
-  display: flex;
-  justify-content: center;
   padding: 10px;
   background-color: #070618;
   display: flex;
@@ -17,8 +15,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  justify-content: space-around;
   position: relative;
+  overflow: auto;
 }
 .tilangWrapper > footer {
   display: flex;
