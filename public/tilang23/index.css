@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("./assets/tilangbg.jpeg");
+  /* background-image: url("./assets/bg.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -23,6 +23,7 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  justify-self: flex-end;
 }
 footer > div {
   display: flex;

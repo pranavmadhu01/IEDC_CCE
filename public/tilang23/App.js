@@ -52,9 +52,9 @@ function App() {
   else {
     return (
       <div className="tilangWrapper">
-        <a href="https://iedc.cce.edu.in">
+        {/* <a href="https://iedc.cce.edu.in">
           <button className="backbutton">BACK</button>
-        </a>
+        </a> */}
         <div className="tilangInnerWrapper">
           <div className="tilangInnerTop">
             <Teamcard
