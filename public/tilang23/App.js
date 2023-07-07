@@ -52,29 +52,33 @@ function App() {
   else {
     return (
       <div className="tilangWrapper">
-        {/* <a href="https://iedc.cce.edu.in">
-          <button className="backbutton">BACK</button>
-        </a> */}
+        <h2 style={{ color: "white" }}>LEADERBOARD</h2>
         <div className="tilangInnerWrapper">
           <div className="tilangInnerTop">
-            <Teamcard
-              badge={"./assets/second.png"}
-              name={data[1].team}
-              points={data.length === 0 ? 0 : data[1]._sum.score}
-              image={imageRetriever(data[1].team)}
-            />
-            <Teamcard
-              badge={"./assets/first.png"}
-              name={data[0].team}
-              points={data.length === 0 ? 0 : data[0]._sum.score}
-              image={imageRetriever(data[0].team)}
-            />
-            <Teamcard
-              badge={"./assets/third.png"}
-              name={data[2].team}
-              points={data.length === 0 ? 0 : data[2]._sum.score}
-              image={imageRetriever(data[2].team)}
-            />
+            {/* {data[1]._sum.score !== 0 && ( */}
+              <Teamcard
+                badge={"./assets/second.png"}
+                name={data[1].team}
+                points={data.length === 0 ? 0 : data[1]._sum.score}
+                image={imageRetriever(data[1].team)}
+              />
+            {/* )} */}
+            {/* {data[0]._sum.score !== 0 && ( */}
+              <Teamcard
+                badge={"./assets/first.png"}
+                name={data[0].team}
+                points={data.length === 0 ? 0 : data[0]._sum.score}
+                image={imageRetriever(data[0].team)}
+              />
+            {/* )} */}
+            {/* {data[2]._sum.score !== 0 && ( */}
+              <Teamcard
+                badge={"./assets/third.png"}
+                name={data[2].team}
+                points={data.length === 0 ? 0 : data[2]._sum.score}
+                image={imageRetriever(data[2].team)}
+              />
+            {/* // )} */}
           </div>
           <div className="tilangInnerBottom">
             {data.map((data) => (
@@ -86,6 +90,7 @@ function App() {
             ))}
           </div>
         </div>
+        <Eventsfetch />
         <footer>
           <div>
             <img src="./assets/iedc.png" alt="" />
@@ -113,13 +118,59 @@ function Tablesingle({ image, name, points }) {
 }
 function Teamcard({ image, name, points, badge }) {
   return (
-    <div className="teamcardWrapper">
+    <div className="commonteamcard teamcardWrapper">
       <img src={image} alt="" className="logo" />
       <div>
         <span>{name}</span>
         <span>{points}</span>
       </div>
       <img src={badge} alt="" className="badge" />
+    </div>
+  );
+}
+function Eventsfetch() {
+  const [data, setData] = React.useState([]);
+  async function fetchData() {
+    await fetch(
+      "https://expressjs-prisma-production-1d33.up.railway.app/events"
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.events);
+        setData(data.events);
+      });
+  }
+  React.useEffect(() => {
+    fetchData();
+  }, []);
+  return (
+    <div className="eventsfetchwrapperouter">
+      <h2 style={{ color: "white" }}>EVENTS</h2>
+      <div className="eventsfetchwrapper">
+        {data.map((event) => (
+          <EventSingle
+            id={event.ID}
+            name={event.name}
+            date={event.date}
+            time={event.time}
+            type={event.type}
+            venue={event.venue}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+function EventSingle({ id, date, name, time, type, venue }) {
+  return (
+    <div className="eventssinglewrapper">
+      <span>{name}</span>
+      <span>{date}</span>
+      <span>{time}</span>
+      <span>{type}</span>
+      <span>Venue : {venue}</span>
     </div>
   );
 }
